@@ -45,10 +45,8 @@ export function TutorInterface() {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-useEffect(() => {
-    if (messages.length > 0 || loading) {
-      scrollToBottom();
-    }
+  useEffect(() => {
+    scrollToBottom();
   }, [messages, loading]);
 
   async function handleSend() {
@@ -145,10 +143,10 @@ useEffect(() => {
               <div className="p-4 bg-primary/10 rounded-3xl">
                 <Sparkles className="w-10 h-10 text-primary" />
               </div>
-              <div className="space-y-2">
+                  <div className="space-y-2">
                 <h3 className="text-2xl font-bold tracking-tight">Cześć! W czym mogę pomóc?</h3>
                 <p className="text-muted-foreground text-sm max-w-sm mx-auto">
-                  Wybierz tryb **Nauka**, aby otrzymać wyjaśnienie zagadnienia, lub **Kontakt / Pytania**, jeśli masz inne zapytanie.
+                  Wybierz tryb <strong>Nauka</strong>, aby otrzymać wyjaśnienie zagadnienia, lub <strong>Kontakt / Pytania</strong>, jeśli masz inne zapytanie.
                 </p>
               </div>
             </div>
