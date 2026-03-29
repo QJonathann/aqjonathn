@@ -45,8 +45,10 @@ export function TutorInterface() {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  useEffect(() => {
-    scrollToBottom();
+useEffect(() => {
+    if (messages.length > 0 || loading) {
+      scrollToBottom();
+    }
   }, [messages, loading]);
 
   async function handleSend() {
