@@ -1,5 +1,5 @@
 import { TutorInterface } from "@/components/TutorInterface";
-import { GraduationCap } from "lucide-react";
+import { GraduationCap, Cpu } from "lucide-react"; // Dodaliśmy Cpu
 
 export default function Home() {
   return (
@@ -24,14 +24,20 @@ export default function Home() {
             </div>
           </a>
 
-          {/* Nawigacja (ukryta na bardzo małych ekranach, widoczna na większych) */}
+          {/* Nawigacja */}
           <div className="hidden lg:flex items-center gap-6">
             <a href="https://www.qjonathan.pl/o-mnie" className="text-sm font-medium text-slate-500 hover:text-blue-600 transition-colors">O mnie</a>
             <a href="https://www.qjonathan.pl/aktualnosci" className="text-sm font-medium text-slate-500 hover:text-blue-600 transition-colors">Aktualności</a>
             <a href="https://www.qjonathan.pl/poradniki" className="text-sm font-medium text-slate-500 hover:text-blue-600 transition-colors">Poradniki</a>
             <a href="https://www.qjonathan.pl/materialy" className="text-sm font-medium text-slate-500 hover:text-blue-600 transition-colors">Materiały</a>
             <a href="https://www.qjonathan.pl/gwarancja-jakosci" className="text-sm font-medium text-slate-500 hover:text-blue-600 transition-colors">Gwarancja jakości</a>
-            <a href="/" className="text-sm font-medium text-slate-500 hover:text-blue-600 transition-colors">Asystent AI</a>
+            
+            {/* ZAKŁADKA ASYSTENT AI Z IKONKĄ */}
+            <a href="/" className="flex items-center gap-2 text-sm font-bold text-blue-600 hover:opacity-80 transition-all">
+              <Cpu size={16} />
+              Asystent AI
+            </a>
+
             <a href="https://www.qjonathan.pl/kontakt" className="px-5 py-2.5 text-sm font-bold text-white bg-blue-600 rounded-xl shadow-lg shadow-blue-500/30 hover:bg-blue-700 hover:scale-105 active:scale-95 transition-all">
               Kontakt
             </a>
