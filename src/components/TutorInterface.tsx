@@ -103,9 +103,6 @@ useEffect(() => {
               <SelectContent>
                 <SelectItem value="Mathematics">Matematyka</SelectItem>
                 <SelectItem value="Physics">Fizyka</SelectItem>
-                <SelectItem value="Chemistry">Chemia</SelectItem>
-                <SelectItem value="Biology">Biologia</SelectItem>
-                <SelectItem value="Informatics">Informatyka</SelectItem>
               </SelectContent>
             </Select>
           </div>
