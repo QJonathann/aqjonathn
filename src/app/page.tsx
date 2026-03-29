@@ -6,7 +6,8 @@ export default function Home() {
     <div className="flex flex-col min-h-screen bg-slate-50">
       
       {/* --- NAGŁÓWEK --- */}
-<header className="w-full bg-white/80 backdrop-blur-md border-b border-border/50 py-4 px-4 sticky top-0 z-50 shadow-sm/50">        <div className="max-w-7xl mx-auto flex items-center justify-between">
+      <header className="w-full bg-white/80 backdrop-blur-md border-b border-border/50 py-4 px-4 sticky top-0 z-50 shadow-sm/50">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
           
           {/* Logo (kieruje na stronę główną) */}
           <a href="https://www.qjonathan.pl" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
@@ -25,11 +26,12 @@ export default function Home() {
 
           {/* Nawigacja (ukryta na bardzo małych ekranach, widoczna na większych) */}
           <div className="hidden lg:flex items-center gap-6">
-            <a href="https://www.qjonathan.pl/o-mnie" className="text-sm font-medium text-slate-500 hover:text-blue-600 transition-colors">O mnie</a>
-            <a href="https://www.qjonathan.pl/aktualnosci" className="text-sm font-medium text-slate-500 hover:text-blue-600 transition-colors">Aktualności</a>
-            <a href="https://www.qjonathan.pl/poradniki" className="text-sm font-medium text-slate-500 hover:text-blue-600 transition-colors">Poradniki</a>
-            <a href="https://www.qjonathan.pl/materialy" className="text-sm font-medium text-slate-500 hover:text-blue-600 transition-colors">Materiały</a>
-            <a href="https://www.qjonathan.pl/gwarancja-jakosci" className="text-sm font-medium text-slate-500 hover:text-blue-600 transition-colors">Gwarancja jakości</a>
+            <a href="https://www.qjonathan.pl/gwarancja-jakosci" className="text-sm font-medium text-slate-500 hover:text-blue-600 transition-colors">
+              Gwarancja jakości
+            </a>
+            <a href="/" className="text-sm font-medium text-slate-500 hover:text-blue-600 transition-colors">
+              AI Asystent
+            </a>
             <a href="https://www.qjonathan.pl/kontakt" className="px-5 py-2.5 text-sm font-bold text-white bg-blue-600 rounded-xl shadow-lg shadow-blue-500/30 hover:bg-blue-700 hover:scale-105 active:scale-95 transition-all">
               Kontakt
             </a>
