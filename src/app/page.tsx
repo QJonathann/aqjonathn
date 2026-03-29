@@ -6,8 +6,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen bg-slate-50">
       
       {/* --- NAGŁÓWEK --- */}
-      <header className="w-full bg-white border-b border-border/50 py-4 px-4 sticky top-0 z-50 shadow-sm/50">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
+<header className="w-full bg-white/80 backdrop-blur-md border-b border-border/50 py-4 px-4 sticky top-0 z-50 shadow-sm/50">        <div className="max-w-7xl mx-auto flex items-center justify-between">
           
           {/* Logo (kieruje na stronę główną) */}
           <a href="https://www.qjonathan.pl" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
