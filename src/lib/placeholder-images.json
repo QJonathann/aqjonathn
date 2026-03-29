@@ -1,0 +1,10 @@
+{
+  "placeholderImages": [
+    {
+      "id": "tutor-hero",
+      "description": "Clean modern education background",
+      "imageUrl": "https://picsum.photos/seed/fizmat1/1200/600",
+      "imageHint": "modern classroom education"
+    }
+  ]
+}
