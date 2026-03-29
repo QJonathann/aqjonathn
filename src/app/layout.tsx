@@ -4,8 +4,11 @@ import { Navigation } from '@/components/Navigation';
 import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
-  title: 'Fizmat AI Tutor | Personal Academic Assistant',
-  description: 'AI-powered personal tutor for Mathematics, Physics, and more. Get detailed explanations or practice problems instantly.',
+  title: 'qJonathan - Wsparcie w edukacji | Fizyka i Matematyka',
+  description: 'AI Asystent - Korepetycje z fizyki i matematyki. Zadawaj pytania i ucz się efektywniej.',
+  icons: {
+    icon: 'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>',
+  },
 };
 
 export default function RootLayout({
