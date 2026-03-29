@@ -57,12 +57,13 @@ export default function Home() {
       <main className="flex-1 max-w-5xl w-full mx-auto px-4 py-8 md:py-12 space-y-12">
         <section className="animate-fade-in">
           <div className="text-center space-y-3 mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground">
-              Twój Inteligentny <span className="text-primary">Korepetytor</span>
-            </h2>
-            <p className="text-muted-foreground max-w-xl mx-auto">
-              Zadawaj pytania, proś o wyjaśnienia lub generuj zadania do ćwiczeń w czasie rzeczywistym.
-            </p>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground">
+            Twój Inteligentny <span className="text-blue-600">Asystent</span>
+          </h2>
+          <p className="text-muted-foreground max-w-xl mx-auto">
+            Zadaj pytanie, umów się na zajęcia lub dowiedz się więcej o mojej ofercie. 
+            Pomogę Ci we wszystkich kwestiach organizacyjnych.
+          </p>
           </div>
           <TutorInterface />
         </section>
