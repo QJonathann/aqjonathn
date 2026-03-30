@@ -1,4 +1,4 @@
 import { config } from 'dotenv';
 config();
 
-import '@/ai/flows/generate-concept-explanation';
+import './flows/generate-concept-explanation';
