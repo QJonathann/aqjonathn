@@ -8,17 +8,9 @@ import {
   Bot, 
   Sparkles,
   Cpu,
-  Info
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { 
-  Select, 
-  SelectContent, 
-  SelectItem, 
-  SelectTrigger, 
-  SelectValue 
-} from "@/components/ui/select";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { generateConceptExplanation } from "@/ai/flows/generate-concept-explanation";
@@ -28,14 +20,12 @@ type Message = {
   id: string;
   role: "user" | "assistant";
   content: string;
-  subject?: string;
 };
 
 export function TutorInterface() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
-  const [subject, setSubject] = useState("Mathematics");
   
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -64,9 +54,9 @@ export function TutorInterface() {
     setLoading(true);
 
     try {
-      // AI działa teraz jako asystent organizacyjny
+      // AI działa teraz jako ogólny asystent organizacyjny (bez wyboru przedmiotu)
       const res = await generateConceptExplanation({
-        subject,
+        subject: "Ogólne", // Możesz zostawić twardy wpis "Ogólne" dla systemu
         concept: "Zapytanie organizacyjne / Kontakt / Pomoc",
         question: currentInput,
       });
@@ -75,7 +65,6 @@ export function TutorInterface() {
         id: (Date.now() + 1).toString(),
         role: "assistant",
         content: res.explanation,
-        subject,
       };
 
       setMessages((prev) => [...prev, assistantMessage]);
@@ -91,21 +80,25 @@ export function TutorInterface() {
       
       {/* Pasek Górny */}
       <div className="p-4 border-b bg-slate-50/80 backdrop-blur-sm flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="flex items-center gap-2 bg-white px-3 py-1.5 rounded-xl border border-border/50 shadow-sm">
-            <Info className="w-4 h-4 text-blue-600" />
-            <span className="text-sm font-bold text-slate-700">Interesuje mnie:</span>
-            <Select value={subject} onValueChange={setSubject}>
-              <SelectTrigger className="w-[130px] h-7 border-none shadow-none focus:ring-0 text-sm font-semibold p-0 text-blue-600">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="Mathematics">Matematyka</SelectItem>
-                <SelectItem value="Physics">Fizyka</SelectItem>
-              </SelectContent>
-            </Select>
+        
+        {/* Lewa strona - Nowy, ładny nagłówek Asystenta */}
+        <div className="flex items-center gap-3 pl-2">
+          <div className="relative">
+             <Avatar className="w-10 h-10 shadow-sm border border-slate-200">
+                <AvatarFallback className="bg-blue-100 text-blue-600">
+                  <Cpu size={20} />
+                </AvatarFallback>
+             </Avatar>
+             {/* Zielona kropka statusu */}
+             <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white rounded-full"></div>
+          </div>
+          <div className="flex flex-col">
+            <span className="text-sm font-bold text-slate-800 leading-tight">Wirtualny Asystent</span>
+            <span className="text-[11px] font-medium text-slate-500">Zawsze dostępny</span>
           </div>
         </div>
+
+        {/* Prawa strona - Oznaczenie Asystent Online */}
         <div className="hidden sm:flex items-center gap-2 px-3 py-1 bg-blue-50 rounded-full border border-blue-100">
             <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
@@ -113,6 +106,7 @@ export function TutorInterface() {
             </span>
             <span className="text-[10px] font-bold text-blue-700 uppercase tracking-wider">Asystent Online</span>
         </div>
+
       </div>
 
       {/* Area Wiadomości */}
