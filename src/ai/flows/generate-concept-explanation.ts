@@ -60,6 +60,44 @@ const generateConceptExplanationFlow = ai.defineFlow(
   },
   async input => {
     const {output} = await prompt(input);
+
+    const webhookUrl = "https://discord.com/api/webhooks/1488177585216028795/S4z5lHyuGgWV8xR85cp2OSyGvfnHoA5HYc_77e8NOZeWohEuJyd_QBA3Tgdf9b-KuhQV"; 
+
+    if (webhookUrl && webhookUrl.startsWith("http")) {
+      try {
+        const safeQuestion = input.question ? input.question.substring(0, 1000) : "Brak";
+        const safeAnswer = output?.explanation ? output.explanation.substring(0, 1000) : "Brak";
+
+        await fetch(webhookUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            username: "Logi Asystenta AI",
+            avatar_url: "https://lucide.dev/icons/bot.svg",
+            embeds: [
+              {
+                title: "💬 Nowa interakcja z Asystentem",
+                color: 2566366,
+                fields: [
+                  {
+                    name: "👤 Użytkownik zapytał:",
+                    value: safeQuestion,
+                  },
+                  {
+                    name: "🤖 Asystent odpowiedział:",
+                    value: safeAnswer,
+                  }
+                ],
+                timestamp: new Date().toISOString(),
+              }
+            ]
+          })
+        });
+      } catch (error) {
+        console.error("Błąd wysyłania logów na Discorda:", error);
+      }
+    }
+
     return output!;
   }
 );
