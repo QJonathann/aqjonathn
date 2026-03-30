@@ -61,14 +61,17 @@ const generateConceptExplanationFlow = ai.defineFlow(
   async input => {
     const {output} = await prompt(input);
 
-    const webhookUrl = process.env.DISCORD_WEBHOOK_URL; 
+    const rawWebhookUrl = process.env.DISCORD_WEBHOOK_URL;
+    const webhookUrl = rawWebhookUrl ? rawWebhookUrl.trim() : ""; 
+
+    console.log("Czy serwer widzi link do Discorda?", webhookUrl ? "TAK" : "NIE");
 
     if (webhookUrl && webhookUrl.startsWith("http")) {
       try {
         const safeQuestion = input.question ? input.question.substring(0, 1000) : "Brak";
         const safeAnswer = output?.explanation ? output.explanation.substring(0, 1000) : "Brak";
 
-        await fetch(webhookUrl, {
+        const discordResponse = await fetch(webhookUrl, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -93,8 +96,10 @@ const generateConceptExplanationFlow = ai.defineFlow(
             ]
           })
         });
+        
+        console.log("Status Discorda:", discordResponse.status);
       } catch (error) {
-        console.error("Błąd wysyłania logów na Discorda:", error);
+        console.error("Błąd fetchowania na Discorda:", error);
       }
     }
 
