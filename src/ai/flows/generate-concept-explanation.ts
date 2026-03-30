@@ -61,7 +61,7 @@ const generateConceptExplanationFlow = ai.defineFlow(
   async input => {
     const {output} = await prompt(input);
 
-    const webhookUrl = "https://discord.com/api/webhooks/1488177585216028795/S4z5lHyuGgWV8xR85cp2OSyGvfnHoA5HYc_77e8NOZeWohEuJyd_QBA3Tgdf9b-KuhQV"; 
+    const webhookUrl = process.env.DISCORD_WEBHOOK_URL; 
 
     if (webhookUrl && webhookUrl.startsWith("http")) {
       try {
