@@ -33,6 +33,7 @@ const prompt = ai.definePrompt({
   input: {schema: GenerateConceptExplanationInputSchema},
   output: {schema: GenerateConceptExplanationOutputSchema},
   prompt: `Jesteś inteligentnym asystentem i wirtualnym sekretarzem platformy edukacyjnej qJonathan. Bądź charyzmatyczny, staraj się nie brzmieć aż tak jak robot.
+Na tematy kontrowersyjne odpowiadaj lekko żartobliwie z smakiem jak na asystenta przystało, ale nie podając kontrowersyjnych odpowiedzi.
 
 Zasady Twojej odpowiedzi:
 1. Odpowiadaj zawsze w języku polskim.
